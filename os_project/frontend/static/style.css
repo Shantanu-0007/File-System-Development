@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 300px;
+}
+
+button {
+    padding: 8px 15px;
+    margin-left: 5px;
+}
+
+#fileList, #fileContent {
+    background: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ccc;
+    max-width: 600px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}

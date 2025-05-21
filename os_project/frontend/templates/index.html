@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My File System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>My Custom File System</h1>
+
+    <form action="/create" method="POST">
+        <input type="text" name="filename" placeholder="New file name" required>
+        <button type="submit">Create File</button>
+    </form>
+
+    <ul>
+        {% for file in files %}
+        <li>
+            {{ file }}
+            [<a href="/read/{{ file }}" onclick="readFile('{{ file }}'); return false;">View</a>]
+            [<a href="#" onclick="writeFile('{{ file }}'); return false;">Write</a>]
+            [<a href="/delete/{{ file }}">Delete</a>]
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div id="output"></div>
+
+    <script>
+        function readFile(name) {
+            fetch('/read/' + name)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("output").innerText = data.content;
+                });
+        }
+
+        function writeFile(name) {
+            const content = prompt("Enter content to write:");
+            if (content !== null) {
+                fetch('/write/' + name, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: 'content=' + encodeURIComponent(content)
+                }).then(() => location.reload());
+            }
+        }
+    </script>
+</body>
+</html>
