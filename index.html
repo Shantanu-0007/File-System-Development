@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyFS - Web Frontend</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>FILE SYSTEM DEVELOPMENT</h1>
+
+    <div class="controls">
+        <input type="text" id="filename" placeholder="Filename or Directory name">
+        <button onclick="createFile()">Create File</button>
+        <button onclick="createDir()">Create Directory</button>
+        <button onclick="deleteEntry()">Delete</button>
+    </div>
+
+    <div class="controls">
+        <button onclick="listFiles()">List Files</button>
+    </div>
+    <div id="fileList"></div>
+
+    <div class="controls">
+        <input type="text" id="readFile" placeholder="Enter File Name to Read">
+        <button onclick="readFile()">Read File</button>
+    </div>
+    <pre id="fileContent"></pre>
+
+    <div class="controls">
+        <input type="text" id="editFile" placeholder="Enter Filename to Edit">
+        <textarea id="editContent" placeholder="New content..." rows="6" style="width: 60%; margin-top: 10px;"></textarea><br>
+        <button onclick="editFile()">Edit File</button>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
