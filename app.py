@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# Path to your compiled C program (CLI for filesystem)
+
 MYFS_BIN = "./myfs"
 
 @app.route('/')
